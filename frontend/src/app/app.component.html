@@ -1,0 +1,20 @@
+
+ <div class="row vh-100 m-0">
+    <div class="col-md-4 rounded">
+      <div class="planes rounded">
+        <div class="titulo rounded">
+          <h1 class="rounded">Planes</h1>
+        </div>
+        <div *ngFor="let plan of planes">
+          <button class="plan rounded active"
+          (click)="elegirPlan(plan)"
+          [class.active]="plan === planElegido"><div class="text">{{plan?.fechaInicio?.toLocaleString()}} - {{plan?.fechaFin?.toLocaleString()}}</div>
+          </button>
+        </div>
+      
+      </div>
+    </div>
+    <div class="col-sm-8" *ngIf="planElegido">
+      <app-sesion [sesiones]="sesionesPlan" [planId]="planElegido.id"></app-sesion>
+    </div>
+  </div>

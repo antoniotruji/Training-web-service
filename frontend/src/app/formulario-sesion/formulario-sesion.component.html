@@ -1,0 +1,60 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">{{accion}} sesión</h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cierre usuario')"></button>
+</div>
+<div class="modal-body">
+  <div class="form-group">
+      <div class="row">
+        <div class="col-md-6">
+         <label for="inicio">Inicio:</label>
+         <input type="datetime-local" class="form-control" id="inicio" [(ngModel)]="sesion.inicio">
+       </div>
+       <div class="col-md-6 mt-2 mt-md-0">
+          <label for="fin">Fin:</label>
+          <input type="datetime-local" class="form-control" id="fin" [(ngModel)]="sesion.fin">
+        </div>
+      </div>
+      
+      <label for="trabajo">Trabajo realizado:</label>
+      <textarea class="form-control" id="trabajo" rows="5" [(ngModel)]="sesion.trabajoRealizado"></textarea>
+  
+      <label for="video">Vídeo:</label>
+      <input class="form-control"  id="video"  type="url" placeholder="Enlace a video" [(ngModel)]="sesion.multimedia[0]">
+
+      <label for="foto">Foto:</label>
+      <input class="form-control"  id="foto"  type="url" placeholder="Enlace a foto" [(ngModel)]="sesion.multimedia[1]">
+
+      <label for="descripcion">Descripción:</label>
+      <textarea class="form-control" id="descripcion" rows="5" [(ngModel)]="sesion.descripcion"></textarea>
+      
+      <fieldset>
+        <p>Datos de salud:</p>
+      
+        <div class="input-group mb-3" >
+          <input type="text" class="form-control" placeholder="Pulsaciones" id="pulsaciones" [(ngModel)]="sesion.datosSalud[0]">
+          <span class="input-group-text" >pulsaciones/min</span>
+        </div>
+      
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Peso" id="peso" [(ngModel)]="sesion.datosSalud[1]">
+          <span class="input-group-text">kg</span>
+        </div>
+      
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Calorias consumidas" id="calorias" [(ngModel)]="sesion.datosSalud[2]">
+          <span class="input-group-text">cal</span>
+        </div>
+      </fieldset>
+
+      
+      <label for="presencial">Marcar si el entrenamiento fue presencial </label>
+      <input class="form-check-input" id="presencial" type="checkbox"  [(ngModel)]="sesion.presencial">
+      
+   
+      
+
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" title = "guardar" (click)="guardarSesion()">Guardar</button>
+</div>

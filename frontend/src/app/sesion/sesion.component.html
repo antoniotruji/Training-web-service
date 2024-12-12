@@ -1,0 +1,30 @@
+  <div class="row vh-100 m-0">
+    <div class="col-md-5 rounded">
+      <div class="sesiones rounded">
+      <div class="titulo rounded">
+        <h1 class="rounded">Sesiones</h1>
+      </div>
+        <div *ngFor="let sesion of sesiones">
+            <button class="sesion rounded active"
+                (click)="elegirSesion(sesion)"
+                [class.active]="sesion === sesionElegida"><div class="text">{{sesion?.inicio | date:'dd/MM/yyyy HH:mm'}} - {{sesion?.fin | date:'dd/MM/yyyy HH:mm'}}</div>
+              </button>
+        </div>
+      
+      <br>
+      <div class="aniadir">
+        <button type="button" class="btn btn-outline-light bi bi-plus-lg" (click)="aniadirSesion()"></button>
+      </div>
+    </div>
+  </div>
+    
+    <!-- Detalles de sesión -->
+    
+    <div class="col-md-7" *ngIf="sesionElegida">
+        <app-detalle-sesion [sesion]="sesionElegida"
+          (sesionEditada)="editarSesion($event)"
+          (sesionEliminada)="eliminarSesion($event)"
+          ></app-detalle-sesion>
+     
+    </div>
+  </div>
